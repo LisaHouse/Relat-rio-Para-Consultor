@@ -1,0 +1,8 @@
+select  V.V6_cli_nome, SUM(V.V6_tot_pedido) AS VALOR from DV601 V
+ WHERE V6_DATA >= :DATA
+   and V6_DATA <= :DATA2
+   and V6_FILIAL >= :F
+   and V6_FILIAL <= :F2
+   AND (V6_OPERACAO ='V' OR V6_OPERACAO ='W' OR  V6_OPERACAO = 'A')
+ group BY 1
+ order by 1
